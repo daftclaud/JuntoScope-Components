@@ -8,39 +8,19 @@ import { Component, State } from '@stencil/core';
 export class TaskCreator {
 
   @State() tasks: string[] = [];
-  @State() value: string;
 
-  addTasks() {
-    let newTasks = this.value.split('\n');
-
-    this.tasks = this.tasks.concat(newTasks);
-    this.value = "";
-
-  }
-
-  handleChange(event) {
-    this.value = event.target.value;
+  submitTasks(t) {
+    this.tasks = this.tasks.concat(t.detail);
   }
 
   render() {
     return (
       <div class='task-creator'>
-        <p>
-          Create Tasks. A new line creates a new task.
-        </p>
 
-        <form>
-          <textarea id="txtarea" value={this.value}
-            onInput={ (event) => this.handleChange(event) }
-            rows={5} cols={40}></textarea>
-        </form>
-        <button onClick={ () => this.addTasks() }>Submit</button>
+        <task-input onTasksSubmitted={ tasks => this.submitTasks(tasks) }>
+        </task-input>
 
-        <ul>
-          {this.tasks.map((task) =>
-            <li>{task}</li>
-          )}
-        </ul>
+        <task-list tasks={this.tasks}></task-list>
 
       </div>
     );

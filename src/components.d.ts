@@ -136,4 +136,58 @@ declare global {
   }
 }
 
+
+declare global {
+  interface HTMLTaskInputElement extends HTMLStencilElement {
+
+  }
+  var HTMLTaskInputElement: {
+    prototype: HTMLTaskInputElement;
+    new (): HTMLTaskInputElement;
+  };
+  interface HTMLElementTagNameMap {
+    'task-input': HTMLTaskInputElement;
+  }
+  interface ElementTagNameMap {
+    'task-input': HTMLTaskInputElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'task-input': JSXElements.TaskInputAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface TaskInputAttributes extends HTMLAttributes {
+      'onTasksSubmitted'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
+  interface HTMLTaskListElement extends HTMLStencilElement {
+    'tasks': string[];
+  }
+  var HTMLTaskListElement: {
+    prototype: HTMLTaskListElement;
+    new (): HTMLTaskListElement;
+  };
+  interface HTMLElementTagNameMap {
+    'task-list': HTMLTaskListElement;
+  }
+  interface ElementTagNameMap {
+    'task-list': HTMLTaskListElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'task-list': JSXElements.TaskListAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface TaskListAttributes extends HTMLAttributes {
+      'tasks'?: string[];
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
