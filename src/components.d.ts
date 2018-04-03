@@ -109,4 +109,31 @@ declare global {
   }
 }
 
+
+declare global {
+  interface HTMLTaskCreatorElement extends HTMLStencilElement {
+
+  }
+  var HTMLTaskCreatorElement: {
+    prototype: HTMLTaskCreatorElement;
+    new (): HTMLTaskCreatorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'task-creator': HTMLTaskCreatorElement;
+  }
+  interface ElementTagNameMap {
+    'task-creator': HTMLTaskCreatorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'task-creator': JSXElements.TaskCreatorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface TaskCreatorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
