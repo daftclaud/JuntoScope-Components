@@ -190,4 +190,60 @@ declare global {
   }
 }
 
+
+declare global {
+  interface HTMLVoteCounterContainerElement extends HTMLStencilElement {
+
+  }
+  var HTMLVoteCounterContainerElement: {
+    prototype: HTMLVoteCounterContainerElement;
+    new (): HTMLVoteCounterContainerElement;
+  };
+  interface HTMLElementTagNameMap {
+    'vote-counter-container': HTMLVoteCounterContainerElement;
+  }
+  interface ElementTagNameMap {
+    'vote-counter-container': HTMLVoteCounterContainerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'vote-counter-container': JSXElements.VoteCounterContainerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface VoteCounterContainerAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+  interface HTMLVoteCounterElement extends HTMLStencilElement {
+    'total': number;
+    'votes': number;
+  }
+  var HTMLVoteCounterElement: {
+    prototype: HTMLVoteCounterElement;
+    new (): HTMLVoteCounterElement;
+  };
+  interface HTMLElementTagNameMap {
+    'vote-counter': HTMLVoteCounterElement;
+  }
+  interface ElementTagNameMap {
+    'vote-counter': HTMLVoteCounterElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'vote-counter': JSXElements.VoteCounterAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface VoteCounterAttributes extends HTMLAttributes {
+      'total'?: number;
+      'votes'?: number;
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
