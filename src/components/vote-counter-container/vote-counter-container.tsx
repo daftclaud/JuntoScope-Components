@@ -16,22 +16,6 @@ export class VoteCounterContainer {
     }
   }
 
-  //Was going to try to emulate an async call to fetch votes.
-  
-  // getRndInteger(min, max) {
-  //   return Math.floor(Math.random() * (max - min) ) + min;
-  // }
-  //
-  // getVotes() {
-  //   this.incrementVotes();
-  //   console.log(this.votes)
-  //   while(this.votes < this.total) {
-  //     console.log("this ran");
-  //     setTimeout(this.incrementVotes, this.getRndInteger(1000, 9000));
-  //   }
-  //
-  // }
-
   render() {
     return (
       <div class='vote-counter-container'>

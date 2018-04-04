@@ -246,4 +246,59 @@ declare global {
   }
 }
 
+
+declare global {
+  interface HTMLVoteSquareContainerElement extends HTMLStencilElement {
+
+  }
+  var HTMLVoteSquareContainerElement: {
+    prototype: HTMLVoteSquareContainerElement;
+    new (): HTMLVoteSquareContainerElement;
+  };
+  interface HTMLElementTagNameMap {
+    'vote-square-container': HTMLVoteSquareContainerElement;
+  }
+  interface ElementTagNameMap {
+    'vote-square-container': HTMLVoteSquareContainerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'vote-square-container': JSXElements.VoteSquareContainerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface VoteSquareContainerAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+  interface HTMLVoteSquareElement extends HTMLStencilElement {
+    'hours': number;
+  }
+  var HTMLVoteSquareElement: {
+    prototype: HTMLVoteSquareElement;
+    new (): HTMLVoteSquareElement;
+  };
+  interface HTMLElementTagNameMap {
+    'vote-square': HTMLVoteSquareElement;
+  }
+  interface ElementTagNameMap {
+    'vote-square': HTMLVoteSquareElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'vote-square': JSXElements.VoteSquareAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface VoteSquareAttributes extends HTMLAttributes {
+      'hours'?: number;
+      'onSquareSelected'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }

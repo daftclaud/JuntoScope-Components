@@ -13,6 +13,8 @@ export class AppHome {
         <task-creator></task-creator>
 
         <vote-counter-container></vote-counter-container>
+
+        <vote-square-container></vote-square-container>
       </div>
     );
   }
