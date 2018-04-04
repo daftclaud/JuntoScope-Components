@@ -7,8 +7,8 @@ import { Component, State } from '@stencil/core';
 })
 export class VoteSquareContainer {
 
-  @State() value: number;
-  @State() votes: number[] = [6, 4, 8, 9]; //'fetched' from db
+  @State() value: string;
+  @State() votes: string[] = ["6", "4", "8", "9"]; //'fetched' from db
 
   setValue(h) {
     this.value = h.detail;
@@ -18,6 +18,10 @@ export class VoteSquareContainer {
     return (
       <div class='vote-square-container'>
         <p>Selected Value: {this.value}</p>
+
+        <vote-square onSquareSelected={ h => this.setValue(h) } label="Custom"
+          isEditable={true}>
+        </vote-square>
 
         {this.votes.map((v) =>
           <vote-square onSquareSelected={ h => this.setValue(h) } hours={v}>
