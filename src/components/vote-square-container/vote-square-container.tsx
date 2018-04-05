@@ -7,24 +7,42 @@ import { Component, State } from '@stencil/core';
 })
 export class VoteSquareContainer {
 
-  @State() value: string;
   @State() votes: string[] = ["6", "4", "8", "9"]; //'fetched' from db
+  @State() selectedEl: any;
 
-  setValue(h) {
-    this.value = h.detail;
+  setEl(h) {
+    //Deep change detection work-around
+    this.selectedEl = [];
+    this.selectedEl = this.els.filter((el) => el === h.target)[0];
+    this.selectedEl.isSelected = true;
+
+    //deselect other vote-squares
+    this.els.map((el) => {
+      if (el != this.selectedEl) {
+        el.isSelected = false;
+      }
+    })
+  }
+
+  //fetch all vote-squares
+  els: any[];
+  componentDidLoad() {
+    this.els = [].slice.call(document.querySelectorAll("vote-square"));
   }
 
   render() {
+    console.log("Rendering!");
     return (
       <div class='vote-square-container'>
-        <p>Selected Value: {this.value}</p>
+        <p>Selected Value: {this.selectedEl ? this.selectedEl.hours:""}</p>
 
-        <vote-square onSquareSelected={ h => this.setValue(h) } label="Custom"
+        <vote-square onSquareSelected={ h => this.setEl(h) } label="Custom"
           isEditable={true}>
         </vote-square>
 
+
         {this.votes.map((v) =>
-          <vote-square onSquareSelected={ h => this.setValue(h) } hours={v}>
+          <vote-square onSquareSelected={ h => this.setEl(h) } hours={v}>
           </vote-square>
         )}
       </div>

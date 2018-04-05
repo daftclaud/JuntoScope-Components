@@ -278,6 +278,7 @@ declare global {
   interface HTMLVoteSquareElement extends HTMLStencilElement {
     'hours': string;
     'isEditable': boolean;
+    'isSelected': boolean;
     'label': string;
   }
   var HTMLVoteSquareElement: {
@@ -299,6 +300,7 @@ declare global {
     export interface VoteSquareAttributes extends HTMLAttributes {
       'hours'?: string;
       'isEditable'?: boolean;
+      'isSelected'?: boolean;
       'label'?: string;
       'onSquareSelected'?: (event: CustomEvent) => void;
     }

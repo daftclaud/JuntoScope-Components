@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, State, Listen } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop } from '@stencil/core';
 
 
 @Component({
@@ -9,16 +9,16 @@ export class VoteSquare {
 
   @Event() squareSelected: EventEmitter;
   @Prop({ mutable: true }) hours: string = "--";
+  @Prop({ mutable: true }) isSelected: boolean = false;
   @Prop() label: string = "";
-  @State() isSelected: boolean = false;
   @Prop() isEditable: boolean = false;
 
-  @Listen('body:click')
-  handleClick(ev) {
-    if (!((ev.target.textContent).includes(this.hours))) {
-      this.isSelected = false;
-    }
-  }
+  // @Listen('body:click')
+  // handleClick(ev) {
+  //   if (!((ev.target.textContent).includes(this.hours))) {
+  //     this.isSelected = false;
+  //   }
+  // }
 
   squareSelectedHandler() {
     if(this.isEditable) {
@@ -28,12 +28,9 @@ export class VoteSquare {
       else if (this.isSelected) {
         this.hours = prompt("Please enter amount of hours: ");
       }
-      this.squareSelected.emit(this.hours);
-    } else {
-      this.squareSelected.emit(this.hours);
     }
 
-    this.isSelected = true;
+    this.squareSelected.emit(this);
   }
 
   render() {
